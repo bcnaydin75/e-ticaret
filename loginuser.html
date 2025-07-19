@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Sepeti - Modanın Kalbi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6a5acd;
+            --secondary: #9370db;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #4a4a4a;
+            --background: #fff9fb;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 50%;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: var(--secondary);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon-btn {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .icon-btn:hover {
+            color: var(--primary);
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            padding: 12px 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(106, 90, 205, 0.85), rgba(147, 112, 219, 0.85)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Categories */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-img {
+            height: 200px;
+            background-color: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
+        }
+
+        .category-info {
+            padding: 20px;
+        }
+
+        .category-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 280px;
+            background-color: #f5f9fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .quick-view {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            background: rgba(106, 90, 205, 0.9);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            transition: bottom 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover .quick-view {
+            bottom: 0;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        .product-info .category {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .price .current {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price .old {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        /* Visitor Counter */
+        .visitor-counter {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 50px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .counter-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .counter-number {
+            font-size: 60px;
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .counter-text {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .newsletter h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            color: #666;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 50px 50px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #ff5252;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #444;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-content h2 {
+                font-size: 36px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .categories,
+            .products,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 50px;
+            }
+        }
+
+        /* Login Modal */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.4s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 28px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 18px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #f5f5f5;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+            outline: none;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remember-me input {
+            width: auto;
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-login p {
+            position: relative;
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        .social-login p::before,
+        .social-login p::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .social-login p::before {
+            left: 0;
+        }
+
+        .social-login p::after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .facebook {
+            background: #3b5998;
+        }
+
+        .google {
+            background: #dd4b39;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        .signup-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Logged in state */
+        .logged-in-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .user-greeting {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .user-info h2 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        .special-offer {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .special-offer h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .special-offer p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .recommended-section {
+            margin: 50px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .view-all {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all:hover {
+            color: var(--primary);
+        }
+
+        /* Profile dropdown */
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .profile-dropdown.active {
+            display: block;
+        }
+
+        .profile-dropdown ul {
+            list-style: none;
+        }
+
+        .profile-dropdown li a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .profile-dropdown li a:hover {
+            background: #f5f5f5;
+            color: var(--primary);
+        }
+
+        .profile-dropdown li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Profile button container */
+        .profile-container {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Login/Register Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Trend Sepeti</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="loginTab">Giriş Yap</button>
+                <button class="tab-btn" id="registerTab">Kayıt Ol</button>
+            </div>
+            <div class="modal-body">
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-posta</label>
+                        <input type="email" id="loginEmail" placeholder="E-posta adresinizi girin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Şifre</label>
+                        <input type="password" id="loginPassword" placeholder="Şifrenizi girin" required>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Beni Hatırla</label>
+                        </div>
+                        <a href="#" class="forgot-password">Şifremi Unuttum?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Giriş Yap</button>
+
+                    <div class="social-login">
+                        <p>veya sosyal medya ile giriş yap</p>
+                        <div class="social-buttons">
+                            <div class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-btn google">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="social-btn twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="signup-link">
+                        Hesabınız yok mu? <a href="#" id="goToRegister">Kayıt Ol</a>
+                    </div>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Ad Soyad</label>
+                        <input type="text" id="registerName" placeholder="Adınız ve soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">E-posta</label>
+                        <input type="email" id="registerEmail" placeholder="E-posta adresiniz" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Şifre</label>
+                        <input type="password" id="registerPassword" placeholder="Şifreniz (min. 6 karakter)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirm">Şifreyi Onayla</label>
+                        <input type="password" id="registerConfirm" placeholder="Şifrenizi tekrar girin" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms">Kullanım koşullarını ve gizlilik politikasını kabul ediyorum</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Hesap Oluştur</button>
+
+                    <div class="signup-link">
+                        Zaten hesabınız var mı? <a href="#" id="goToLogin">Giriş Yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>Trend <span>Sepeti</span></h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Aradığınız ürünü buraya yazın...">
+                    <button><i class="fas fa-search"></i> Ara</button>
+                </div>
+                <div class="header-icons">
+                    <div class="profile-container">
+                        <button class="icon-btn" id="profileBtn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-user"></i> Profilim</a></li>
+                                <li><a href="#"><i class="fas fa-shopping-bag"></i> Siparişlerim</a></li>
+                                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="icon-btn">
+                        <i class="fas fa-heart"></i>
+                        <span class="icon-badge">3</span>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="icon-badge">5</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Anasayfa</a></li>
+                    <li><a href="women.html">Kadın</a></li>
+                    <li><a href="male.html">Erkek</a></li>
+                    <li><a href="kids.html">Çocuk</a></li>
+                    <li><a href="shoe.html">Ayakkabı</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Logged in state content (hidden by default) -->
+    <div id="loggedInContent" style="display: none;">
+        <div class="container">
+            <div class="logged-in-header">
+                <div class="user-greeting">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-info">
+                        <h2 id="userGreeting">Merhaba, Ayşe!</h2>
+                        <p>Hoş geldiniz!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="special-offer">
+                <h2>Özel Hoş Geldin İndirimi!</h2>
+                <p>İlk alışverişinizde %20 indirim kazanın. Hemen kullanmak için aşağıdaki kodu kopyalayın.</p>
+                <div
+                    style="background: white; color: var(--primary); padding: 10px; border-radius: 5px; display: inline-block; font-weight: bold; margin: 10px 0;">
+                    HOSGELDIN20</div>
+            </div>
+
+            <div class="recommended-section">
+                <div class="section-header">
+                    <h2>Sizin İçin Öneriler</h2>
+                    <a href="#" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Kadın Elbise">
+                            <span class="product-badge">Özel</span>
+                            <div class="quick-view">Hızlı Görünüm</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Özel Tasarım Yazlık Elbise</h3>
+                            <span class="category">Kadın Giyim</span>
+                            <div class="price">
+                                <div class="current">₺299.99</div>
+                                <div class="old">₺399.99</div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Erkek Tişört">
+                            <span class="product-badge">Yeni</span>
+                            <div class="quick-view">Hızlı Görünüm</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Pamuklu Tişört</h3>
+                            <span class="category">Erkek Giyim</span>
+                            <div class="price">
+                                <div class="current">₺149.99</div>
+                                <div class="old">₺199.99</div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Spor Ayakkabı">
+                            <span class="product-badge">İndirim</span>
+                            <div class="quick-view">Hızlı Görünüm</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Konforlu Spor Ayakkabı</h3>
+                            <span class="category">Ayakkabı</span>
+                            <div class="price">
+                                <div class="current">₺449.99</div>
+                                <div class="old">₺599.99</div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Erkek Gömlek">
+                            <span class="product-badge">Popüler</span>
+                            <div class="quick-view">Hızlı Görünüm</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Klasik Erkek Gömlek</h3>
+                            <span class="category">Erkek Giyim</span>
+                            <div class="price">
+                                <div class="current">₺249.99</div>
+                                <div class="old">₺349.99</div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Default content (shown when not logged in) -->
+    <div id="defaultContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Yaz Sezonu Fırsatları Sizi Bekliyor!</h2>
+                    <p>Yeni sezonun en trend parçaları, özel indirimler ve kampanyalarla Trend Sepeti'nde. Tarzınızı
+                        keşfedin!</p>
+                    <a href="#" class="btn">Hemen Alışverişe Başla</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container">
+            <div class="section-title">
+                <h2>Kategoriler</h2>
+            </div>
+
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Kadın Giyim">
+                    </div>
+                    <div class="category-info">
+                        <h3>Kadın Giyim</h3>
+                        <p>450+ Ürün</p>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Erkek Giyim">
+                    </div>
+                    <div class="category-info">
+                        <h3>Erkek Giyim</h3>
+                        <p>380+ Ürün</p>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Çocuk Giyim">
+                    </div>
+                    <div class="category-info">
+                        <h3>Çocuk Giyim</h3>
+                        <p>320+ Ürün</p>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Ayakkabı & Çanta">
+                    </div>
+                    <div class="category-info">
+                        <h3>Ayakkabı</h3>
+                        <p>280+ Ürün</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="container">
+            <div class="section-title">
+                <h2>Öne Çıkan Ürünler</h2>
+            </div>
+
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Kadın Elbise">
+                        <span class="product-badge">Yeni</span>
+                        <div class="quick-view">Hızlı Görünüm</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Yazlık Desenli Elbise</h3>
+                        <span class="category">Kadın Giyim</span>
+                        <div class="price">
+                            <div class="current">₺349.99</div>
+                            <div class="old">₺499.99</div>
+                        </div>
+                        <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Erkek Tişört">
+                        <span class="product-badge">%25 İndirim</span>
+                        <div class="quick-view">Hızlı Görünüm</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pamuklu Erkek Tişört</h3>
+                        <span class="category">Erkek Giyim</span>
+                        <div class="price">
+                            <div class="current">₺129.99</div>
+                            <div class="old">₺179.99</div>
+                        </div>
+                        <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Çocuk Eşofman">
+                        <span class="product-badge">Popüler</span>
+                        <div class="quick-view">Hızlı Görünüm</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Çocuk Eşofman Takımı</h3>
+                        <span class="category">Çocuk Giyim</span>
+                        <div class="price">
+                            <div class="current">₺199.99</div>
+                            <div class="old">₺299.99</div>
+                        </div>
+                        <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Kadın Ayakkabı">
+                        <span class="product-badge">Fırsat</span>
+                        <div class="quick-view">Hızlı Görünüm</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kadın Spor Ayakkabı</h3>
+                        <span class="category">Ayakkabı</span>
+                        <div class="price">
+                            <div class="current">₺449.99</div>
+                            <div class="old">₺699.99</div>
+                        </div>
+                        <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Counter -->
+        <div class="container">
+            <div class="visitor-counter">
+                <h2 class="counter-title">Sitemizi Ziyaret Edenler</h2>
+                <div class="counter-number" id="visitorCount">0</div>
+                <p class="counter-text">Siz de trendin bir parçası olan binlerce müşterimizden biri olun!</p>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <section class="container">
+            <div class="newsletter">
+                <h2>Fırsatlardan Haberdar Olun</h2>
+                <p>Yenilikler, özel indirimler ve kampanyalardan haberdar olmak için bültenimize abone olun.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="E-posta adresinizi girin" required>
+                    <button type="submit">Abone Ol</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Trend Sepeti</h3>
+                    <p>Türkiye'nin en trend giyim ve moda ürünleri tek platformda. Kalite ve uygun fiyat garantisi!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kategoriler</h3>
+                    <ul>
+                        <li><a href="women.html">Kadın Giyim</a></li>
+                        <li><a href="male.html">Erkek Giyim</a></li>
+                        <li><a href="kids.html">Çocuk Giyim</a></li>
+                        <li><a href="shoe.html">Ayakkabı</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Müşteri Hizmetleri</h3>
+                    <ul>
+                        <li><a href="#">Sipariş Takibi</a></li>
+                        <li><a href="#">İade ve Değişim</a></li>
+                        <li><a href="#">Teslimat Bilgileri</a></li>
+                        <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>İletişim</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                        <li><i class="fas fa-phone"></i> +90 212 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@trendsepeti.com</li>
+                        <li><i class="fas fa-clock"></i> 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Trend Sepeti. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auth modal functionality
+        const authModal = document.getElementById('authModal');
+        const profileBtn = document.getElementById('profileBtn');
+        const closeModal = document.getElementById('closeModal');
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const goToRegister = document.getElementById('goToRegister');
+        const goToLogin = document.getElementById('goToLogin');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const loggedInContent = document.getElementById('loggedInContent');
+        const defaultContent = document.getElementById('defaultContent');
+        const userGreeting = document.getElementById('userGreeting');
+        const userAvatar = document.getElementById('userAvatar');
+
+        // Check if user is logged in
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (isLoggedIn && user) {
+                // Hide default content and show logged in content
+                defaultContent.style.display = 'none';
+                loggedInContent.style.display = 'block';
+
+                // Update user greeting
+                userGreeting.textContent = `Merhaba, ${user.name.split(' ')[0]}!`;
+                userAvatar.textContent = user.name.charAt(0);
+            } else {
+                // Show default content and hide logged in content
+                defaultContent.style.display = 'block';
+                loggedInContent.style.display = 'none';
+            }
+        }
+
+        // Show modal when profile icon is clicked
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (isLoggedIn) {
+                // Toggle dropdown
+                profileDropdown.classList.toggle('active');
+            } else {
+                authModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            authModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Switch to login tab
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        // Switch to register tab
+        registerTab.addEventListener('click', () => {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+
+        // Go to register from login form
+        goToRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerTab.click();
+        });
+
+        // Go to login from register form
+        goToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginTab.click();
+        });
+
+        // Login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const name = email.split('@')[0]; // Simulate user name from email
+
+            // Save user data to localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('user', JSON.stringify({
+                name: name.charAt(0).toUpperCase() + name.slice(1),
+                email: email
+            }));
+
+            // Close modal and update UI
+            authModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            checkLoginStatus();
+        });
+
+        // Register form submission
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+
+            // Save user data to localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('user', JSON.stringify({
+                name: name,
+                email: email
+            }));
+
+            // Close modal and update UI
+            authModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            checkLoginStatus();
+        });
+
+        // Logout functionality
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('user');
+            profileDropdown.classList.remove('active');
+            checkLoginStatus();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Visitor counter functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check login status on page load
+            checkLoginStatus();
+
+            // Retrieve visitor count from localStorage or initialize
+            let count = localStorage.getItem('visitorCount');
+            if (!count) {
+                count = Math.floor(Math.random() * 1000) + 5000; // Random starting point
+            } else {
+                count = parseInt(count);
+            }
+
+            // Increment count
+            count++;
+            localStorage.setItem('visitorCount', count);
+
+            // Animated counter effect
+            const counterElement = document.getElementById('visitorCount');
+            let current = 0;
+            const increment = Math.ceil(count / 100);
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= count) {
+                    current = count;
+                    clearInterval(timer);
+                }
+                counterElement.textContent = current.toLocaleString();
+            }, 20);
+
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.btn');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    if (e.target.textContent === "Sepete Ekle") {
+                        e.preventDefault();
+                        const productCard = this.closest('.product-card');
+                        const productName = productCard.querySelector('h3').textContent;
+
+                        // Update cart badge
+                        const cartBadge = document.querySelector('.fa-shopping-cart').nextElementSibling;
+                        let cartCount = parseInt(cartBadge.textContent);
+                        cartCount++;
+                        cartBadge.textContent = cartCount;
+
+                        // Show confirmation
+                        this.textContent = "Sepete Eklendi!";
+                        this.style.backgroundColor = '#5cb85c';
+
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            this.textContent = "Sepete Ekle";
+                            this.style.backgroundColor = '';
+                        }, 2000);
+                    }
+                });
+            });
+
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input');
+                if (emailInput.value) {
+                    alert(`Bültenimize abone olduğunuz için teşekkür ederiz! ${emailInput.value} adresine bir onay maili gönderdik.`);
+                    emailInput.value = '';
+                }
+            });
+
+            // Quick view functionality
+            const quickViewElements = document.querySelectorAll('.quick-view');
+            quickViewElements.forEach(el => {
+                el.addEventListener('click', function () {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('h3').textContent;
+                    alert(`${productName} ürününü detaylı incelemek için yakında açılacak olan ürün sayfasını kullanabilirsiniz!`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
