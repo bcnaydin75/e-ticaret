@@ -4,432 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TestLab - Admin Panel</title>
-    <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --success: #4cc9f0;
-            --dark: #212529;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f5f7fb;
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            color: white;
-            height: 100vh;
-            position: fixed;
-            padding: 20px 0;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
-            font-weight: 700;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .menu {
-            margin-top: 30px;
-        }
-
-        .menu-item {
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .menu-item:hover,
-        .menu-item.active {
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid white;
-        }
-
-        .menu-item i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #e0e4ec;
-            margin-bottom: 30px;
-        }
-
-        .search-bar {
-            position: relative;
-            width: 300px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid #dee2e6;
-            border-radius: 30px;
-        }
-
-        .search-bar i {
-            position: absolute;
-            left: 15px;
-            top: 12px;
-            color: var(--gray);
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .user-info img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        /* Dashboard Cards */
-        .dashboard-cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .card-title {
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary);
-        }
-
-        .card-value {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 5px 0;
-        }
-
-        .card-footer {
-            color: var(--success);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Recent Orders */
-        .section {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            margin-bottom: 30px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            color: var(--gray);
-            font-weight: 600;
-        }
-
-        .status {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .status.completed {
-            background: rgba(76, 201, 240, 0.15);
-            color: var(--success);
-        }
-
-        .status.pending {
-            background: rgba(255, 193, 7, 0.15);
-            color: #ffc107;
-        }
-
-        .btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-    </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Stilistre - Yönetim Paneli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght=700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../Style/admin.css" />
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="logo">TESTLAB</div>
-        <div class="menu">
-            <div class="menu-item active">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-            </div>
-            <div class="menu-item">
-                <i class="fas fa-box"></i> Ürünler
-            </div>
-            <div class="menu-item">
-                <i class="fas fa-shopping-cart"></i> Siparişler
-            </div>
-            <div class="menu-item">
-                <i class="fas fa-users"></i> Müşteriler
-            </div>
-            <div class="menu-item">
-                <i class="fas fa-chart-bar"></i> Analitik
-            </div>
-            <div class="menu-item">
-                <i class="fas fa-cog"></i> Ayarlar
-            </div>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <h1>Stilistre<span>Admin</span></h1>
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i>
+                        <span>Gösterge Paneli</span></a></li>
+                <li><a href="#" data-page="products"><i class="fas fa-box"></i> <span>Ürünler</span></a></li>
+                <li><a href="#" data-page="orders"><i class="fas fa-shopping-bag"></i> <span>Siparişler</span></a></li>
+                <li><a href="#" data-page="customers"><i class="fas fa-users"></i> <span>Müşteriler</span></a></li>
+                <li><a href="#" data-page="brands"><i class="fas fa-tag"></i> <span>Markalar</span></a></li>
+                <li><a href="#" data-page="reports"><i class="fas fa-chart-line"></i> <span>Raporlar</span></a></li>
+                <li><a href="#" data-page="settings"><i class="fas fa-cog"></i> <span>Ayarlar</span></a></li>
+            </ul>
+        </nav>
+        <div class="logout-section">
+            <a href="index.html"><i class="fas fa-sign-out-alt"></i> <span>Çıkış Yap</span></a>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Topbar -->
+    <div class="main-content" id="mainContent">
         <div class="topbar">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Ara...">
-            </div>
-            <div class="user-info">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="User">
-                <div>
-                    <div>Yönetici</div>
-                    <div style="font-size: 12px; color: var(--gray);">admin@testlab.com</div>
-                </div>
+            <h2></h2>
+            <div class="admin-info">
+                <div class="admin-avatar">AD</div>
+                <span>Admin Adı Soyadı</span>
             </div>
         </div>
 
-        <!-- Dashboard Cards -->
-        <div class="dashboard-cards">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Toplam Satış</div>
-                    <div class="card-icon">
-                        <i class="fas fa-shopping-bag"></i>
-                    </div>
-                </div>
-                <div class="card-value">₺24,560</div>
-                <div class="card-footer">
-                    <i class="fas fa-arrow-up"></i> 12% geçen aydan
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Siparişler</div>
-                    <div class="card-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="card-value">86</div>
-                <div class="card-footer">
-                    <i class="fas fa-arrow-up"></i> 8 yeni sipariş
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Müşteriler</div>
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                </div>
-                <div class="card-value">1,240</div>
-                <div class="card-footer">
-                    <i class="fas fa-arrow-up"></i> 3.2% aktiflik
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Stok Alarm</div>
-                    <div class="card-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                </div>
-                <div class="card-value">12 ürün</div>
-                <div class="card-footer">
-                    <i class="fas fa-arrow-down"></i> acil yenileme
-                </div>
-            </div>
-        </div>
-
-        <!-- Recent Orders -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-title">Son Siparişler</div>
-                <button class="btn btn-primary">Tümünü Görüntüle</button>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Sipariş No</th>
-                        <th>Müşteri</th>
-                        <th>Tarih</th>
-                        <th>Tutar</th>
-                        <th>Durum</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#TL-2456</td>
-                        <td>TeknoLab A.Ş.</td>
-                        <td>21 Tem 2023</td>
-                        <td>₺3,450</td>
-                        <td><span class="status completed">Tamamlandı</span></td>
-                    </tr>
-                    <tr>
-                        <td>#TL-2455</td>
-                        <td>ElektroTest Ltd.</td>
-                        <td>21 Tem 2023</td>
-                        <td>₺1,890</td>
-                        <td><span class="status completed">Tamamlandı</span></td>
-                    </tr>
-                    <tr>
-                        <td>#TL-2454</td>
-                        <td>Akademi Laboratuvar</td>
-                        <td>20 Tem 2023</td>
-                        <td>₺5,670</td>
-                        <td><span class="status pending">Hazırlanıyor</span></td>
-                    </tr>
-                    <tr>
-                        <td>#TL-2453</td>
-                        <td>Endüstri Analiz</td>
-                        <td>19 Tem 2023</td>
-                        <td>₺2,340</td>
-                        <td><span class="status completed">Tamamlandı</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Low Stock Products -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-title">Düşük Stoklu Ürünler</div>
-                <button class="btn btn-primary">Stok Ekle</button>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ürün Adı</th>
-                        <th>Kategori</th>
-                        <th>Mevcut Stok</th>
-                        <th>Kritik Seviye</th>
-                        <th>Durum</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fluke 87V Multimetre</td>
-                        <td>Elektrik Test</td>
-                        <td>3</td>
-                        <td>10</td>
-                        <td><span class="status pending">Acil</span></td>
-                    </tr>
-                    <tr>
-                        <td>Keysight Osiloskop</td>
-                        <td>Ölçüm Cihazları</td>
-                        <td>5</td>
-                        <td>8</td>
-                        <td><span class="status pending">Düşük</span></td>
-                    </tr>
-                    <tr>
-                        <td>Thermo Fisher Spektrometre</td>
-                        <td>Laboratuvar</td>
-                        <td>2</td>
-                        <td>5</td>
-                        <td><span class="status pending">Acil</span></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="dynamicContentArea">
         </div>
     </div>
+
+    <script src="../Script/admin.js">
+
+    </script>
 </body>
 
 </html>
