@@ -4,550 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sepetim - Trend Sepeti</title>
+    <title>Trend Sepeti - Sepetim</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght=700&display=swap"
         rel="stylesheet">
-    <style>
-        :root {
-            --primary: #ff3e6c;
-            --primary-light: #ffd7e0;
-            --secondary: #4e54c8;
-            --dark: #333;
-            --light: #f8f9fa;
-            --gray: #777;
-            --border: #e0e0e0;
-            --success: #4CAF50;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f5f5f5;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header Styles */
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .search-bar {
-            display: flex;
-            flex: 0 1 500px;
-            margin: 0 20px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border);
-            border-radius: 4px 0 0 4px;
-            font-size: 14px;
-        }
-
-        .search-bar button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .icon-btn {
-            position: relative;
-            background: none;
-            border: none;
-            font-size: 18px;
-            color: var(--dark);
-            cursor: pointer;
-        }
-
-        .icon-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--primary);
-            color: white;
-            font-size: 10px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            padding: 15px 0;
-        }
-
-        nav ul li {
-            margin-right: 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-
-        nav ul li a i {
-            margin-right: 5px;
-        }
-
-        /* Cart Page Styles */
-        .cart-page {
-            padding: 40px 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .cart-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .cart-container {
-            display: flex;
-            gap: 30px;
-        }
-
-        .cart-items {
-            flex: 2;
-        }
-
-        .cart-summary {
-            flex: 1;
-        }
-
-        /* Cart Item Styles */
-        .cart-item {
-            display: flex;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-
-        .cart-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .item-image {
-            width: 150px;
-            height: 150px;
-            background: #f8f8f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .item-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-
-        .item-details {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .item-title {
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--dark);
-        }
-
-        .remove-btn {
-            background: none;
-            border: none;
-            color: var(--gray);
-            cursor: pointer;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .remove-btn:hover {
-            color: var(--primary);
-        }
-
-        .item-category {
-            font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 10px;
-        }
-
-        .item-color,
-        .item-size {
-            display: inline-block;
-            background: var(--light);
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-            margin-right: 8px;
-            margin-bottom: 15px;
-        }
-
-        .item-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .item-quantity {
-            display: flex;
-            align-items: center;
-        }
-
-        .quantity-btn {
-            width: 30px;
-            height: 30px;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-input {
-            width: 50px;
-            height: 30px;
-            text-align: center;
-            border: 1px solid var(--border);
-            margin: 0 5px;
-            border-radius: 4px;
-        }
-
-        .item-price {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--dark);
-        }
-
-        .item-price .old-price {
-            font-size: 14px;
-            color: var(--gray);
-            text-decoration: line-through;
-            margin-right: 5px;
-        }
-
-        .discount-badge {
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        /* Cart Summary Styles */
-        .summary-card {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 20px;
-        }
-
-        .summary-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
-
-        .summary-row.total {
-            font-weight: 700;
-            font-size: 18px;
-            margin: 20px 0;
-            padding-top: 15px;
-            border-top: 1px solid var(--border);
-        }
-
-        .discount-row {
-            color: var(--success);
-        }
-
-        .free-shipping {
-            color: var(--success);
-            font-weight: 500;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .free-shipping i {
-            font-size: 18px;
-        }
-
-        .btn-checkout {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-
-        .btn-checkout:hover {
-            background: #e62e5c;
-        }
-
-        .continue-shopping {
-            display: block;
-            text-align: center;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 15px;
-            transition: color 0.3s;
-        }
-
-        .continue-shopping:hover {
-            color: #e62e5c;
-        }
-
-        .coupon-section {
-            margin-top: 25px;
-        }
-
-        .coupon-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .coupon-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .coupon-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
-
-        .coupon-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: white;
-            padding: 50px 0 20px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .footer-col p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--primary);
-        }
-
-        .footer-col ul li i {
-            width: 20px;
-            color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--light);
-            color: var(--dark);
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .cart-container {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-top {
-                flex-wrap: wrap;
-            }
-
-            .search-bar {
-                order: 3;
-                flex: 0 0 100%;
-                margin: 15px 0 0;
-            }
-
-            .cart-item {
-                flex-direction: column;
-            }
-
-            .item-image {
-                width: 100%;
-                height: 200px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Style/index.css">
+    <link rel="stylesheet" href="Style/market.css">
 </head>
 
 <body>
-    <!-- Header -->
+    <div class="auth-modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Trend Sepeti</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="loginTab">Giriş Yap</button>
+                <button class="tab-btn" id="registerTab">Kayıt Ol</button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-posta</label>
+                        <input type="email" id="loginEmail" placeholder="E-posta adresinizi girin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Şifre</label>
+                        <input type="password" id="loginPassword" placeholder="Şifrenizi girin" required>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Beni Hatırla</label>
+                        </div>
+                        <a href="#" class="forgot-password">Şifremi Unuttum?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Giriş Yap</button>
+
+                    <div class="social-login">
+                        <p>veya sosyal medya ile giriş yap</p>
+                        <div class="social-buttons">
+                            <div class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-btn google">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="social-btn twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="signup-link">
+                        Hesabınız yok mu? <a href="#" id="goToRegister">Kayıt Ol</a>
+                    </div>
+                </form>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Ad Soyad</label>
+                        <input type="text" id="registerName" placeholder="Adınız ve soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">E-posta</label>
+                        <input type="email" id="registerEmail" placeholder="E-posta adresiniz" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Şifre</label>
+                        <input type="password" id="registerPassword" placeholder="Şifreniz (min. 6 karakter)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirm">Şifreyi Onayla</label>
+                        <input type="password" id="registerConfirm" placeholder="Şifrenizi tekrar girin" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Hesap Oluştur</button>
+
+                    <div class="signup-link">
+                        Zaten hesabınız var mı? <a href="#" id="goToLogin">Giriş Yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="header-top">
@@ -559,16 +102,16 @@
                     <button><i class="fas fa-search"></i> Ara</button>
                 </div>
                 <div class="header-icons">
-                    <button class="icon-btn">
+                    <button class="icon-btn" id="profileBtn">
                         <i class="fas fa-user"></i>
                     </button>
-                    <button class="icon-btn">
+                    <button class="icon-btn" onclick="window.location.href='favorites.html'">
                         <i class="fas fa-heart"></i>
                         <span class="icon-badge">3</span>
                     </button>
-                    <button class="icon-btn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="icon-badge">5</span>
+                    <button class="icon-btn" onclick="window.location.href='sepet.html'">
+                        <i class=" fas fa-shopping-cart"></i>
+                        <span class="icon-badge" id="cartBadgeCount">5</span>
                     </button>
                 </div>
             </div>
@@ -582,185 +125,91 @@
                     <li><a href="male.html">Erkek</a></li>
                     <li><a href="kids.html">Çocuk</a></li>
                     <li><a href="shoe.html">Ayakkabı</a></li>
-                    <li><a href="#" style="color: var(--primary);"><i class="fas fa-shopping-cart"></i> Sepetim</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Cart Page -->
-    <section class="cart-page">
-        <div class="container">
-            <div class="cart-header">
-                <h1 class="cart-title">Sepetim (4 Ürün)</h1>
-            </div>
+    <main class="container content-section">
+        <div class="section-title">
+            <h2>Sepetim</h2>
+        </div>
 
-            <div class="cart-container">
-                <!-- Cart Items -->
-                <div class="cart-items">
-                    <!-- Item 1 -->
-                    <div class="cart-item">
-                        <div class="item-image">
-                            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                alt="Kadın Elbise">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-header">
-                                <h3 class="item-title">Yazlık Desenli Elbise</h3>
-                                <button class="remove-btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <div class="item-category">Kadın Giyim</div>
-                            <div>
-                                <span class="item-color">Beyaz</span>
-                                <span class="item-size">M Beden</span>
-                            </div>
-                            <div class="item-footer">
-                                <div class="item-quantity">
-                                    <button class="quantity-btn">-</button>
-                                    <input type="text" class="quantity-input" value="1">
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                                <div class="item-price">
-                                    <span class="old-price">₺499.99</span>
-                                    ₺349.99 <span class="discount-badge">%30 İNDİRİM</span>
-                                </div>
-                            </div>
-                        </div>
+        <div class="cart-container">
+            <div class="cart-items" id="cartItemsContainer">
+                <div class="cart-item" data-price="349.99">
+                    <div class="cart-item-img">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Yazlık Desenli Elbise">
                     </div>
-
-                    <!-- Item 2 -->
-                    <div class="cart-item">
-                        <div class="item-image">
-                            <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                alt="Erkek Tişört">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-header">
-                                <h3 class="item-title">Pamuklu Erkek Tişört</h3>
-                                <button class="remove-btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <div class="item-category">Erkek Giyim</div>
-                            <div>
-                                <span class="item-color">Siyah</span>
-                                <span class="item-size">XL Beden</span>
-                            </div>
-                            <div class="item-footer">
-                                <div class="item-quantity">
-                                    <button class="quantity-btn">-</button>
-                                    <input type="text" class="quantity-input" value="2">
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                                <div class="item-price">
-                                    <span class="old-price">₺179.99</span>
-                                    ₺129.99 <span class="discount-badge">%25 İNDİRİM</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cart-item-details">
+                        <h3>Yazlık Desenli Elbise</h3>
+                        <span class="category">Kadın Giyim</span>
+                        <div class="cart-item-price">₺<span class="item-current-price">349.99</span></div>
                     </div>
-
-                    <!-- Item 3 -->
-                    <div class="cart-item">
-                        <div class="item-image">
-                            <img src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                alt="Çocuk Eşofman">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-header">
-                                <h3 class="item-title">Çocuk Eşofman Takımı</h3>
-                                <button class="remove-btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <div class="item-category">Çocuk Giyim</div>
-                            <div>
-                                <span class="item-color">Mavi</span>
-                                <span class="item-size">8-9 Yaş</span>
-                            </div>
-                            <div class="item-footer">
-                                <div class="item-quantity">
-                                    <button class="quantity-btn">-</button>
-                                    <input type="text" class="quantity-input" value="1">
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                                <div class="item-price">
-                                    <span class="old-price">₺299.99</span>
-                                    ₺199.99 <span class="discount-badge">%33 İNDİRİM</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn decrease-quantity">-</button>
+                        <input type="number" value="1" min="1" class="item-quantity">
+                        <button class="quantity-btn increase-quantity">+</button>
                     </div>
-
-                    <!-- Item 4 -->
-                    <div class="cart-item">
-                        <div class="item-image">
-                            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                alt="Kadın Ayakkabı">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-header">
-                                <h3 class="item-title">Kadın Spor Ayakkabı</h3>
-                                <button class="remove-btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <div class="item-category">Ayakkabı</div>
-                            <div>
-                                <span class="item-color">Beyaz</span>
-                                <span class="item-size">38 Numara</span>
-                            </div>
-                            <div class="item-footer">
-                                <div class="item-quantity">
-                                    <button class="quantity-btn">-</button>
-                                    <input type="text" class="quantity-input" value="1">
-                                    <button class="quantity-btn">+</button>
-                                </div>
-                                <div class="item-price">
-                                    <span class="old-price">₺699.99</span>
-                                    ₺449.99 <span class="discount-badge">%35 İNDİRİM</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="remove-item"><i class="fas fa-times"></i></button>
                 </div>
 
-                <!-- Cart Summary -->
-                <div class="cart-summary">
-                    <div class="summary-card">
-                        <h2 class="summary-title">Sipariş Özeti</h2>
-
-                        <div class="summary-row">
-                            <span>Ürünler Toplamı:</span>
-                            <span>₺1,129.96</span>
-                        </div>
-
-                        <div class="summary-row discount-row">
-                            <span>İndirim:</span>
-                            <span>-₺380.00</span>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Kargo:</span>
-                            <span class="free-shipping"><i class="fas fa-check-circle"></i> Ücretsiz</span>
-                        </div>
-
-                        <div class="summary-row total">
-                            <span>Toplam Tutar:</span>
-                            <span>₺749.96</span>
-                        </div>
-
-                        <button class="btn-checkout">GÜVENLİ ÖDEME YAP</button>
-                        <a href="index.html" class="continue-shopping">Alışverişe Devam Et</a>
-
-                        <div class="coupon-section">
-                            <h3 class="coupon-title">Kupon Kodu</h3>
-                            <div class="coupon-form">
-                                <input type="text" class="coupon-input" placeholder="Kupon kodunuzu girin">
-                                <button class="coupon-btn">Uygula</button>
-                            </div>
-                        </div>
+                <div class="cart-item" data-price="129.99">
+                    <div class="cart-item-img">
+                        <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Pamuklu Erkek Tişört">
                     </div>
+                    <div class="cart-item-details">
+                        <h3>Pamuklu Erkek Tişört</h3>
+                        <span class="category">Erkek Giyim</span>
+                        <div class="cart-item-price">₺<span class="item-current-price">129.99</span></div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn decrease-quantity">-</button>
+                        <input type="number" value="2" min="1" class="item-quantity">
+                        <button class="quantity-btn increase-quantity">+</button>
+                    </div>
+                    <button class="remove-item"><i class="fas fa-times"></i></button>
                 </div>
             </div>
+
+            <div class="cart-summary">
+                <h3>Sepet Özeti</h3>
+                <div class="summary-row">
+                    <span>Ara Toplam:</span>
+                    <span id="subtotal">₺0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Kargo Ücreti:</span>
+                    <span id="shippingCost">₺0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Toplam:</span>
+                    <span id="totalAmount">₺0.00</span>
+                </div>
+                <button class="checkout-btn">Ödeme Yap</button>
+                <a href="index.html" class="continue-shopping-btn">Alışverişe Devam Et</a>
+            </div>
+        </div>
+
+        <div class="empty-cart-message" id="emptyCartMessage" style="display: none;">
+            <p>Sepetinizde henüz ürün bulunmamaktadır.</p>
+            <a href="index.html" class="btn">Alışverişe Başla</a>
+        </div>
+    </main>
+
+    <section class="container">
+        <div class="newsletter">
+            <h2>Fırsatlardan Haberdar Olun</h2>
+            <p>Yenilikler, özel indirimler ve kampanyalardan haberdar olmak için bültenimize abone olun.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="E-posta adresinizi girin" required>
+                <button type="submit">Abone Ol</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -812,34 +261,150 @@
             </div>
         </div>
     </footer>
-
+    <script src="script.js"></script>
     <script>
-        // Miktar butonları için fonksiyon
-        document.querySelectorAll('.quantity-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const input = this.parentNode.querySelector('.quantity-input');
-                let value = parseInt(input.value);
+        // Sepet Sayfası İçin JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const subtotalElement = document.getElementById('subtotal');
+            const shippingCostElement = document.getElementById('shippingCost');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const emptyCartMessage = document.getElementById('emptyCartMessage');
+            const cartSummary = document.querySelector('.cart-summary');
+            const cartBadgeCount = document.getElementById('cartBadgeCount');
 
-                if (this.textContent === '-' && value > 1) {
-                    input.value = value - 1;
-                } else if (this.textContent === '+' && value < 10) {
-                    input.value = value + 1;
+            // Kargo ücreti sabit veya belirli bir eşiğe göre değişebilir
+            const SHIPPING_THRESHOLD = 500; // Örneğin, 500 TL üzeri kargo bedava
+            const BASE_SHIPPING_COST = 19.99; // Temel kargo ücreti
+
+            function updateCartTotals() {
+                let subtotal = 0;
+                let totalItems = 0;
+
+                document.querySelectorAll('.cart-item').forEach(item => {
+                    const pricePerItem = parseFloat(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('.item-quantity').value);
+                    subtotal += pricePerItem * quantity;
+                    totalItems += quantity;
+                });
+
+                let shippingCost = BASE_SHIPPING_COST;
+                if (subtotal >= SHIPPING_THRESHOLD) {
+                    shippingCost = 0; // Kargo bedava
                 }
 
-                // Gerçek uygulamada fiyat güncellemesi yapılır
-            });
-        });
+                const totalAmount = subtotal + shippingCost;
 
-        // Silme butonları
-        document.querySelectorAll('.remove-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const cartItem = this.closest('.cart-item');
-                cartItem.style.opacity = '0';
-                setTimeout(() => {
+                subtotalElement.textContent = `₺${subtotal.toFixed(2)}`;
+                shippingCostElement.textContent = `₺${shippingCost.toFixed(2)}`;
+                totalAmountElement.textContent = `₺${totalAmount.toFixed(2)}`;
+
+                // Sepet boşsa mesajı göster, doluysa gizle
+                if (totalItems === 0) {
+                    cartItemsContainer.style.display = 'none';
+                    cartSummary.style.display = 'none';
+                    emptyCartMessage.style.display = 'block';
+                } else {
+                    cartItemsContainer.style.display = 'block'; // veya 'grid', 'flex' duruma göre
+                    cartSummary.style.display = 'block';
+                    emptyCartMessage.style.display = 'none';
+                }
+
+                // Header'daki sepet sayısını güncelle
+                if (cartBadgeCount) {
+                    cartBadgeCount.textContent = totalItems;
+                }
+            }
+
+            // Miktar arttırma/azaltma ve ürünü kaldırma olay dinleyicileri
+            cartItemsContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                const cartItem = target.closest('.cart-item');
+
+                if (!cartItem) return;
+
+                const quantityInput = cartItem.querySelector('.item-quantity');
+                let currentQuantity = parseInt(quantityInput.value);
+
+                if (target.classList.contains('increase-quantity')) {
+                    quantityInput.value = currentQuantity + 1;
+                    updateCartTotals();
+                } else if (target.classList.contains('decrease-quantity')) {
+                    if (currentQuantity > 1) {
+                        quantityInput.value = currentQuantity - 1;
+                        updateCartTotals();
+                    }
+                } else if (target.closest('.remove-item')) {
                     cartItem.remove();
-                    // Gerçek uygulamada toplam tutar güncellenir
-                }, 300);
+                    updateCartTotals();
+                }
             });
+
+            // Miktar input'u değiştiğinde
+            cartItemsContainer.addEventListener('change', (event) => {
+                if (event.target.classList.contains('item-quantity')) {
+                    let value = parseInt(event.target.value);
+                    if (isNaN(value) || value < 1) {
+                        event.target.value = 1; // Geçersizse 1'e sabitle
+                    }
+                    updateCartTotals();
+                }
+            });
+
+            // Sayfa yüklendiğinde sepet toplamlarını hesapla
+            updateCartTotals();
+
+            // Modal açma/kapama ve tab geçişleri için mevcut script.js kodunu buraya tekrar ekliyoruz
+            // Eğer script.js tüm sayfalarda ortak işlevleri yönetiyorsa, bu kısmı script.js'e taşıyabilirsin.
+            const profileBtn = document.getElementById('profileBtn');
+            const authModal = document.getElementById('authModal');
+            const closeModal = document.getElementById('closeModal');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const goToRegister = document.getElementById('goToRegister');
+            const goToLogin = document.getElementById('goToLogin');
+
+            if (profileBtn && authModal && closeModal && loginTab && registerTab && loginForm && registerForm && goToRegister && goToLogin) {
+                profileBtn.addEventListener('click', () => {
+                    authModal.style.display = 'flex';
+                });
+
+                closeModal.addEventListener('click', () => {
+                    authModal.style.display = 'none';
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (event.target === authModal) {
+                        authModal.style.display = 'none';
+                    }
+                });
+
+                loginTab.addEventListener('click', () => {
+                    loginTab.classList.add('active');
+                    registerTab.classList.remove('active');
+                    loginForm.classList.add('active');
+                    registerForm.classList.remove('active');
+                });
+
+                registerTab.addEventListener('click', () => {
+                    registerTab.classList.add('active');
+                    loginTab.classList.remove('active');
+                    registerForm.classList.add('active');
+                    loginForm.classList.remove('active');
+                });
+
+                goToRegister.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    registerTab.click();
+                });
+
+                goToLogin.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loginTab.click();
+                });
+            }
         });
     </script>
 </body>

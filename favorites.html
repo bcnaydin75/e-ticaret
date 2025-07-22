@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend Sepeti - Modanın Kalbi</title>
+    <title>Trend Sepeti - Favorilerim</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght=700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Style/index.css">
 </head>
 
 <body>
-    <!-- Login/Register Modal -->
     <div class="auth-modal" id="authModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,7 +24,6 @@
                 <button class="tab-btn" id="registerTab">Kayıt Ol</button>
             </div>
             <div class="modal-body">
-                <!-- Login Form -->
                 <form class="auth-form active" id="loginForm">
                     <div class="form-group">
                         <label for="loginEmail">E-posta</label>
@@ -64,7 +62,6 @@
                     </div>
                 </form>
 
-                <!-- Register Form -->
                 <form class="auth-form" id="registerForm">
                     <div class="form-group">
                         <label for="registerName">Ad Soyad</label>
@@ -93,7 +90,6 @@
         </div>
     </div>
 
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-top">
@@ -113,7 +109,7 @@
                         <span class="icon-badge">3</span>
                     </button>
                     <button class="icon-btn" onclick="window.location.href='market.html'">
-                        <i class=" fas fa-shopping-cart" href="market.html"></i>
+                        <i class=" fas fa-shopping-cart"></i>
                         <span class="icon-badge">5</span>
                     </button>
                 </div>
@@ -128,90 +124,23 @@
                     <li><a href="male.html">Erkek</a></li>
                     <li><a href="kids.html">Çocuk</a></li>
                     <li><a href="shoe.html">Ayakkabı</a></li>
-
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Yaz Sezonu Fırsatları Sizi Bekliyor!</h2>
-                <p>Yeni sezonun en trend parçaları, özel indirimler ve kampanyalarla Trend Sepeti'nde. Tarzınızı
-                    keşfedin!</p>
-                <a href="#" class="btn">Hemen Alışverişe Başla</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="container">
+    <main class="container content-section">
         <div class="section-title">
-            <h2>Kategoriler</h2>
+            <h2>Favori Ürünlerim</h2>
         </div>
 
-        <div class="categories">
-            <div class="category-card">
-                <div class="category-img">
-                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Kadın Giyim">
-                </div>
-                <div class="category-info">
-                    <h3>Kadın Giyim</h3>
-                    <p>450+ Ürün</p>
-                </div>
-            </div>
-
-            <div class="category-card">
-                <div class="category-img">
-                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Erkek Giyim">
-                </div>
-                <div class="category-info">
-                    <h3>Erkek Giyim</h3>
-                    <p>380+ Ürün</p>
-                </div>
-            </div>
-
-            <div class="category-card">
-                <div class="category-img">
-                    <img src="https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Çocuk Giyim">
-                </div>
-                <div class="category-info">
-                    <h3>Çocuk Giyim</h3>
-                    <p>320+ Ürün</p>
-                </div>
-            </div>
-
-            <div class="category-card">
-                <div class="category-img">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Ayakkabı & Çanta">
-                </div>
-                <div class="category-info">
-                    <h3>Ayakkabı</h3>
-                    <p>280+ Ürün</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="container">
-        <div class="section-title">
-            <h2>Öne Çıkan Ürünler</h2>
-        </div>
-
-        <div class="products">
+        <div class="products" id="favoriteProductsGrid">
             <div class="product-card">
                 <div class="product-img">
                     <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Kadın Elbise">
-                    <span class="product-badge">Yeni</span>
+                        alt="Favori Elbise">
                     <div class="quick-view">Hızlı Görünüm</div>
+                    <button class="remove-from-favorites"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="product-info">
                     <h3>Yazlık Desenli Elbise</h3>
@@ -223,13 +152,13 @@
                     <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
                 </div>
             </div>
-
             <div class="product-card">
                 <div class="product-img">
                     <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                         alt="Erkek Tişört">
                     <span class="product-badge">%25 İndirim</span>
                     <div class="quick-view">Hızlı Görünüm</div>
+                    <button class="remove-from-favorites"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="product-info">
                     <h3>Pamuklu Erkek Tişört</h3>
@@ -241,55 +170,13 @@
                     <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
                 </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Çocuk Eşofman">
-                    <span class="product-badge">Popüler</span>
-                    <div class="quick-view">Hızlı Görünüm</div>
-                </div>
-                <div class="product-info">
-                    <h3>Çocuk Eşofman Takımı</h3>
-                    <span class="category">Çocuk Giyim</span>
-                    <div class="price">
-                        <div class="current">₺199.99</div>
-                        <div class="old">₺299.99</div>
-                    </div>
-                    <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                        alt="Kadın Ayakkabı">
-                    <span class="product-badge">Fırsat</span>
-                    <div class="quick-view">Hızlı Görünüm</div>
-                </div>
-                <div class="product-info">
-                    <h3>Kadın Spor Ayakkabı</h3>
-                    <span class="category">Ayakkabı</span>
-                    <div class="price">
-                        <div class="current">₺449.99</div>
-                        <div class="old">₺699.99</div>
-                    </div>
-                    <button class="btn" style="width: 100%; margin-top: 15px;">Sepete Ekle</button>
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!-- Visitor Counter -->
-    <div class="container">
-        <div class="visitor-counter">
-            <h2 class="counter-title">Sitemizi Ziyaret Edenler</h2>
-            <div class="counter-number" id="visitorCount">0</div>
-            <p class="counter-text">Siz de trendin bir parçası olan binlerce müşterimizden biri olun!</p>
+        <div id="noFavoritesMessage" style="text-align: center; padding: 50px 0; display: none;">
+            <p>Henüz favori ürününüz bulunmamaktadır. <a href="index.html">Şimdi alışverişe başlayın!</a></p>
         </div>
-    </div>
+    </main>
 
-    <!-- Newsletter -->
     <section class="container">
         <div class="newsletter">
             <h2>Fırsatlardan Haberdar Olun</h2>
@@ -301,7 +188,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -323,7 +209,6 @@
                         <li><a href="male.html">Erkek Giyim</a></li>
                         <li><a href="kids.html">Çocuk Giyim</a></li>
                         <li><a href="shoe.html">Ayakkabı</a></li>
-
                     </ul>
                 </div>
 
@@ -354,8 +239,10 @@
             </div>
         </div>
     </footer>
-    <script src="Script/index.js"></script>
+    <script src="script.js"></script>
+    <script>
 
+    </script>
 </body>
 
 </html>
